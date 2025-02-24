@@ -4,23 +4,15 @@
   <meta charset="UTF-8">
   <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- You can link a custom stylesheet if you like, for more styling -->
-  <!-- <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"> -->
+  <!-- If you have a custom stylesheet, uncomment and adjust this path:
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  -->
 </head>
 <body>
-  ##<header style="text-align:center;">
-    <!-- Banner Image -->
-    <header class="banner-header" style="text-align:center;">
-  <h1>{{ site.title }}</h1>
-  <nav>
-    <!-- your nav list -->
-  </nav>
-</header>
-
-
+  <header class="banner-header" style="text-align:center;">
     <!-- Site Title -->
     <h1>{{ site.title }}</h1>
-    
+
     <!-- Top Navigation -->
     <nav>
       <ul style="list-style:none; padding:0;">
@@ -39,7 +31,6 @@
         <li style="display:inline; margin-right:1em;">
           <a href="{{ '/contact' | relative_url }}">Contact</a>
         </li>
-        <!-- If you have a 5th sub-page, add it here -->
         <li style="display:inline; margin-right:1em;">
           <a href="{{ '/services' | relative_url }}">Services</a>
         </li>
