@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- If you have a custom stylesheet, uncomment and adjust this path:
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  -->
-</head>
-<body>
-  <header class="banner-header" style="text-align:center;">
-    <body class="{{ page.body_class }}">
 
+  <!-- Uncomment this line to actually load your custom CSS file -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+
+<!-- The single body tag, using the 'body_class' from front matter -->
+<body class="{{ page.body_class }}">
+
+  <header class="banner-header" style="text-align:center;">
     <!-- Site Title -->
     <h1>{{ site.title }}</h1>
 
