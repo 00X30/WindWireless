@@ -3,6 +3,6 @@ layout: default
 title: About
 ---
 
-# About Wind and Wireless
+# About
 
-Here's some background about the mission, the team, and what this site is all about.
+Learn more about the mission and the team behind Wind and Wireless.
