@@ -1,46 +1,67 @@
+* 
+  Global Styles
+---------------------------------------------- */
 body {
+  /* Apply a background image to the entire page */
   background-image: url('../images/background.jpg');
-  background-size: cover; /* Make sure it covers the entire area */
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover;        /* Fill the screen */
+  background-position: center;   /* Center the image */
+  background-repeat: no-repeat;  /* Don't repeat the image */
+  margin: 0;                     /* Remove default browser margin */
+  font-family: sans-serif;       /* Example font family */
+  color: #000;                   /* Default text color */
 }
 
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
+/* 
+  Banner Styles
+  (If you prefer the entire site to have the same background, 
+  you might remove the body background and only use this class.)
+---------------------------------------------- */
 .banner {
   background-image: url('../images/background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* You might need to adjust padding/margins to see the effect */
+  /* 
+    Add padding or height if needed. 
+    Example:
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  */
 }
 
-
+/* 
+  Header Section with a Banner Background
+---------------------------------------------- */
 .banner-header {
-  /* Make sure the header has some height or padding so the image can show */
+  /* Adjust the header height to show more/less of the image */
   height: 300px;
-  /* Center text horizontally */
   text-align: center;
-  /* Center contents vertically */
+
+  /* Flex layout for centering content vertically/horizontally */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  /* Background image styles */
+  /* Background image for just the header */
   background-image: url('../images/banner.jpg');
-  background-size: cover;         /* Scale image to cover entire area */
-  background-position: center;    /* Center the image */
-  background-repeat: no-repeat;   /* Don’t tile the image */
-  color: white;                   /* Text color on top of the image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Text color on top of the image */
+  color: white;
 }
 
-/* Optional: add a subtle background behind the text if it’s hard to read */
+/* 
+  Make the heading in the banner more readable 
+---------------------------------------------- */
 .banner-header h1 {
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
+  background-color: rgba(0, 0, 0, 0.5); 
   padding: 10px;
   border-radius: 5px;
+  margin: 0; /* Remove default margin */
 }
-
-
-
