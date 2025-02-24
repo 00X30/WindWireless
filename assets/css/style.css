@@ -16,6 +16,31 @@ body {
 }
 
 
+.banner-header {
+  /* Make sure the header has some height or padding so the image can show */
+  height: 300px;
+  /* Center text horizontally */
+  text-align: center;
+  /* Center contents vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Background image styles */
+  background-image: url('../images/banner.jpg');
+  background-size: cover;         /* Scale image to cover entire area */
+  background-position: center;    /* Center the image */
+  background-repeat: no-repeat;   /* Don’t tile the image */
+  color: white;                   /* Text color on top of the image */
+}
+
+/* Optional: add a subtle background behind the text if it’s hard to read */
+.banner-header h1 {
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
+  padding: 10px;
+  border-radius: 5px;
+}
 
 
 
