@@ -1,8 +1,8 @@
 ---
 layout: default
-title: About
+title: Wind
 ---
 
-# About Wind and Wireless
+# Wind
 
-Here's some background about the mission, the team, and what this site is all about.
+Explore everything about wind, from the science to our projects.
