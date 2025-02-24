@@ -18,6 +18,10 @@ body {
   min-height: 200px; /* or whatever you prefer */
 }
 
+/* Home page uses banner.jpg instead */
+body.home-page {
+  background-image: url('../images/banner.jpg');
+
 /* Banner image on homepage */
 .banner-image {
   width: 100%;
