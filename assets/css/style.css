@@ -65,3 +65,17 @@ body {
   border-radius: 5px;
   margin: 0; /* Remove default margin */
 }
+
+
+/* Default background for all pages */
+body {
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Homepage specific background */
+body.home-page {
+  background-image: url('../images/header.jpg');
+}
