@@ -6,3 +6,16 @@ body {
 }
 
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+.banner {
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* You might need to adjust padding/margins to see the effect */
+}
+
+
+
+
+
