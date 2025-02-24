@@ -1,63 +1,36 @@
-/* Global Background for all pages */
-body {
-  background-image: url('../images/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0;
-  font-family: sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body class="{{ page.body_class }}">
+  <header class="banner-header">
+    <!-- Only show banner image on homepage -->
+    {% if page.body_class == "home-page" %}
+      <img src="{{ '/assets/images/banner.jpg' | relative_url }}" alt="Banner" class="banner-image">
+    {% endif %}
+    <h1>{{ site.title }}</h1>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/the-hangar' | relative_url }}">The Hangar</a></li>
+        <li><a href="{{ '/wind' | relative_url }}">Wind</a></li>
+        <li><a href="{{ '/wireless' | relative_url }}">Wireless</a></li>
+        <li><a href="{{ '/about' | relative_url }}">About</a></li>
+      </ul>
+    </nav>
+  </header>
 
-/* Header styling */
-.banner-header {
-  text-align: center;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5); /* optional: dark overlay for readability */
-  color: white;
-  position: relative;
-  min-height: 200px; /* or whatever you prefer */
-}
+  <main>
+    {{ content }}
+  </main>
 
-/* Home page uses banner.jpg instead */
-body.home-page {
-  background-image: url('../images/banner.jpg');
-
-/* Banner image on homepage */
-.banner-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-}
-
-/* Navigation styles */
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.nav-list li {
-  display: inline;
-  margin-right: 1em;
-}
-
-.nav-list a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Main content styling */
-main {
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.9); /* subtle background for content */
-  margin: 2rem;
-  border-radius: 8px;
-}
-
-/* Footer styling */
-footer {
-  text-align: center;
-  margin: 2rem 0;
-  color: white;
-}
+  <footer>
+    <hr>
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+  </footer>
+</body>
+</html>
