@@ -1,81 +1,57 @@
-* 
-  Global Styles
----------------------------------------------- */
+/* Global Background for all pages */
 body {
-  /* Apply a background image to the entire page */
-  background-image: url('../images/background.jpg');
-  background-size: cover;        /* Fill the screen */
-  background-position: center;   /* Center the image */
-  background-repeat: no-repeat;  /* Don't repeat the image */
-  margin: 0;                     /* Remove default browser margin */
-  font-family: sans-serif;       /* Example font family */
-  color: #000;                   /* Default text color */
-}
-
-/* 
-  Banner Styles
-  (If you prefer the entire site to have the same background, 
-  you might remove the body background and only use this class.)
----------------------------------------------- */
-.banner {
   background-image: url('../images/background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* 
-    Add padding or height if needed. 
-    Example:
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  */
+  margin: 0;
+  font-family: sans-serif;
 }
 
-/* 
-  Header Section with a Banner Background
----------------------------------------------- */
+/* Header styling */
 .banner-header {
-  /* Adjust the header height to show more/less of the image */
-  height: 300px;
   text-align: center;
-
-  /* Flex layout for centering content vertically/horizontally */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  /* Background image for just the header */
-  background-image: url('../images/banner.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* Text color on top of the image */
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5); /* optional: dark overlay for readability */
   color: white;
 }
 
-/* 
-  Make the heading in the banner more readable 
----------------------------------------------- */
-.banner-header h1 {
-  background-color: rgba(0, 0, 0, 0.5); 
-  padding: 10px;
-  border-radius: 5px;
-  margin: 0; /* Remove default margin */
+/* Banner image on homepage */
+.banner-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
 }
 
-
-/* Default background for all pages */
-body {
-  background-image: url('../images/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* Navigation styles */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
 }
 
-/* Homepage specific background */
-body.home-page {
-  background-image: url('../images/header.jpg');
+.nav-list li {
+  display: inline;
+  margin-right: 1em;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Main content styling */
+main {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9); /* subtle background for content */
+  margin: 2rem;
+  border-radius: 8px;
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  margin: 2rem 0;
+  color: white;
 }
