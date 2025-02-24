@@ -21,6 +21,7 @@ body {
 /* Home page uses banner.jpg instead */
 body.home-page {
   background-image: url('../images/banner.jpg');
+} /* <-- Added this missing bracket */
 
 /* Banner image on homepage */
 .banner-image {
@@ -29,7 +30,7 @@ body.home-page {
   object-fit: cover;
 }
 
-/* Navigation styles */
+/* Navigation styles (apply to ALL pages) */
 .nav-list {
   list-style: none;
   padding: 0;
