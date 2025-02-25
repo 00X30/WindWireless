@@ -19,6 +19,9 @@ title: The Hangar
     $("#feed1").rss(proxy + encodeURIComponent("https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"), {
       limit: 3
     });
+$("#feed1").rss(proxy + encodeURIComponent("https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"), {
+  limit: 3
+});
 
     $("#feed2").rss(proxy + encodeURIComponent("https://feeds.bbci.co.uk/news/technology/rss.xml"), {
       limit: 3
