@@ -2,6 +2,7 @@
 layout: default
 title: The Hangar
 ---
+
 <h2>News Feeds</h2>
 
 <div id="feed1"></div>
@@ -9,21 +10,23 @@ title: The Hangar
 <div id="feed3"></div>
 
 <script>
-$(document).ready(function() {
-  // Helper function to load an RSS feed with a CORS proxy
-  function loadFeed(selector, feedUrl) {
-    // Using a free CORS proxy (AllOrigins) - note: sometimes proxies have rate limits.
-    var proxiedUrl = "https://api.allorigins.hexocode.repl.co/get?disableCache=true&url=" + encodeURIComponent(feedUrl);
-    $(selector).rss(proxiedUrl, {
-      limit: 5,
-      layoutTemplate: "<ul>{entries}</ul>",
-      entryTemplate: '<li><a href="{url}" target="_blank">{title}</a></li>'
-    });
-  }
+  $(document).ready(function() {
+    console.log("The Hangar feed script is running!");
 
-  // Replace these feed URLs with your desired RSS feeds.
-  loadFeed("#feed1", "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml");
-  loadFeed("#feed2", "https://feeds.bbci.co.uk/news/technology/rss.xml");
-  loadFeed("#feed3", "https://www.wired.com/feed/category/gear/latest/rss");
-});
+    // Use a proxy to avoid CORS issues:
+    const proxy = "https://api.allorigins.hexocode.repl.co/get?disableCache=true&url=";
+
+    // Example feeds:
+    $("#feed1").rss(proxy + encodeURIComponent("https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"), {
+      limit: 3
+    });
+
+    $("#feed2").rss(proxy + encodeURIComponent("https://feeds.bbci.co.uk/news/technology/rss.xml"), {
+      limit: 3
+    });
+
+    $("#feed3").rss(proxy + encodeURIComponent("https://www.wired.com/feed/category/gear/latest/rss"), {
+      limit: 3
+    });
+  });
 </script>
