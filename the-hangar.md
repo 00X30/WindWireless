@@ -2,7 +2,6 @@
 layout: default
 title: The Hangar
 ---
-
 <h2>News Feeds</h2>
 
 <div id="feed1"></div>
@@ -11,19 +10,18 @@ title: The Hangar
 
 <script>
 $(document).ready(function() {
-  // Function to load an RSS feed. You might need a CORS proxy if necessary.
+  // Helper function to load an RSS feed with a CORS proxy
   function loadFeed(selector, feedUrl) {
-    $(selector).rss(feedUrl, {
-      // If your feed URL has CORS issues, prepend a proxy URL:
-      // feedUrl: "https://api.allorigins.hexocode.repl.co/get?disableCache=true&url=" + encodeURIComponent(feedUrl),
+    // Using a free CORS proxy (AllOrigins) - note: sometimes proxies have rate limits.
+    var proxiedUrl = "https://api.allorigins.hexocode.repl.co/get?disableCache=true&url=" + encodeURIComponent(feedUrl);
+    $(selector).rss(proxiedUrl, {
       limit: 5,
       layoutTemplate: "<ul>{entries}</ul>",
-      entryTemplate: '<li><a href="{url}" target="_blank">{title}</a></li>',
-      // Optionally, customize how the feed is rendered.
+      entryTemplate: '<li><a href="{url}" target="_blank">{title}</a></li>'
     });
   }
 
-  // Replace the feed URLs below with your desired RSS feed URLs.
+  // Replace these feed URLs with your desired RSS feeds.
   loadFeed("#feed1", "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml");
   loadFeed("#feed2", "https://feeds.bbci.co.uk/news/technology/rss.xml");
   loadFeed("#feed3", "https://www.wired.com/feed/category/gear/latest/rss");
