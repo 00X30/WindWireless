@@ -9,26 +9,18 @@ title: The Hangar
 <div id="feed3"></div>
 
 <script>
-  $(document).ready(function() {
-    console.log("The Hangar feed script is running!");
-
-    // Use a proxy to avoid CORS issues:
-    const proxy = "https://api.allorigins.hexocode.repl.co/get?disableCache=true&url=";
-
-    // Example feeds:
-    $("#feed1").rss(proxy + encodeURIComponent("https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"), {
-      limit: 3
-    });
+ console.log("Loading feed1...");
 $("#feed1").rss(proxy + encodeURIComponent("https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"), {
-  limit: 3
+  limit: 3,
+  layoutTemplate: "<ul>{entries}</ul>",
+  entryTemplate: "<li><a href='{url}' target='_blank'>{title}</a></li>",
+  // A callback to confirm it's done:
+  onData: function() {
+    console.log("feed1 loaded successfully");
+  },
+  onError: function() {
+    console.error("feed1 failed to load");
+  }
 });
 
-    $("#feed2").rss(proxy + encodeURIComponent("https://feeds.bbci.co.uk/news/technology/rss.xml"), {
-      limit: 3
-    });
-
-    $("#feed3").rss(proxy + encodeURIComponent("https://www.wired.com/feed/category/gear/latest/rss"), {
-      limit: 3
-    });
-  });
 </script>
