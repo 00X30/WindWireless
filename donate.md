@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Donate
+body_class: donate-page
 ---
 # Donate
 
