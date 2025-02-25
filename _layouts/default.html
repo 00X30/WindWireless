@@ -8,7 +8,6 @@
 </head>
 <body class="{{ page.body_class }}">
   <header class="banner-header">
-    <!-- Only show banner image on homepage -->
     {% if page.body_class == "home-page" %}
       <img src="{{ '/assets/images/banner.jpg' | relative_url }}" alt="Banner" class="banner-image">
     {% endif %}
@@ -28,10 +27,11 @@
     {{ content }}
   </main>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-rss/3.3.0/jquery.rss.min.js"></script>
+  <!-- Load jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Load jQuery RSS plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-rss/3.3.0/jquery.rss.min.js"></script>
 
-  
   <footer>
     <hr>
     <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
