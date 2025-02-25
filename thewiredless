@@ -1,8 +1,14 @@
 ---
 layout: default
-title: The Wired-less
+title: Wireless
 ---
 
-# About Wind and Wireless
+<h2>Wireless</h2>
 
-If you get the refrence, you get a cookie ;)
+<!-- start feedwind code -->
+<script type="text/javascript"
+        src="https://feed.mikle.com/js/fw-loader.js"
+        preloader-text="Loading"
+        data-fw-param="171541/">
+</script>
+<!-- end feedwind code -->
