@@ -2,23 +2,12 @@
 layout: default
 title: The Hangar
 ---
-<script>
-  async function loadFeed(url, elementId) {
-    try {
-      const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`);
-      const data = await response.json();
 
-      let html = '';
-      data.items.forEach(item => {
-        html += `<p><a href="${item.link}">${item.title}</a></p>`;
-      });
-      document.getElementById(elementId).innerHTML = html;
-    } catch (error) {
-      document.getElementById(elementId).innerHTML = 'Failed to load feed';
-    }
-  }
+<h2>The Hangar</h2>
 
-  // Replace with NASA Earthdata RSS feed URL
-  const nasaEarthdataFeedURL = 'https://www.earthdata.nasa.gov/rss.xml'; 
-  loadFeed(nasaEarthdataFeedURL, 'feedContainer');
+<!-- start feedwind code -->
+<script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
+        preloader-text="Loading" 
+        data-fw-param="171538/">
 </script>
+<!-- end feedwind code -->
