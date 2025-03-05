@@ -4,7 +4,7 @@ title: Support
 body_class: donate-page
 ---
 
-# Donate
+# Support the channel
 
 If you like what I do, please consider supporting Wind & Wireless. Your support keeps the channel going and inspires future explorers!
 
