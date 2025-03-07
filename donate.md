@@ -4,9 +4,17 @@ title: Support
 body_class: donate-page
 ---
 
-# Support the channel
+# ✈️ Buy Me a Prop – Join the Flight Crew! ✈️  
 
-If you like what I do, please consider supporting Wind & Wireless. Your support keeps the channel going and inspires future explorers!
+**Come fly with us!**  
+
+Did you like the part where I crashed? Wanna see me do it again? 😆  
+
+**Good news**—propellers are cheap, but I go through a lot of them! If you want to keep the flights going, grab a prop and I'll write your name or message on it—so you can **literally** fly with us. 🚁✨  
+
+Every supporter gets a **shoutout**, and if (when) that prop meets an *unfortunate fate*, I'll post an update with a **crash report** in your honor. 🎖️  
+
+**See you in the skies!** 🌤️  
 
 <!-- Ko-fi Button -->
 <a href="https://ko-fi.com/windwireless" target="_blank">
