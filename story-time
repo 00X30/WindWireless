@@ -1,14 +1,22 @@
 ---
 layout: default
 title: Story Time
+body_class: story-page
 ---
 
-<h2>Wind</h2>
+# 📖 <span style="font-family: cursive; font-size: 2.5rem;">Story Time</span> ✨  
 
-<!-- start feedwind code -->
-<script type="text/javascript" 
-        src="https://feed.mikle.com/js/fw-loader.js" 
-        preloader-text="Loading" 
-        data-fw-param="171538/">
-</script>
-<!-- end feedwind code -->
+*"Fiction is the lie through which we tell the truth."* – Albert Camus  
+
+Welcome to **Story Time**, where myths, legends, and dreams come to life. Each chapter takes you deeper into the world of **Wind & Wireless**, weaving together adventure, mystery, and the spirit of exploration.  
+
+## **📚 Read the Chapters:**  
+🔗 **[Chapter 1: TITLE HERE](#)**  
+🔗 **[Chapter 2: TITLE HERE](#)**  
+🔗 **[Chapter 3: TITLE HERE](#)**  
+
+(*More chapters coming soon!*)  
+
+---
+
+💡 **Want to join the journey?** Drop a comment, share your thoughts, or support future stories! 🚀  
