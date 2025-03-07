@@ -16,7 +16,7 @@ title: The Hangar
 <!-- end feedwind code -->
 {% endraw %}
 
-<p><strong>Wispers on the Wind.</strong></p>
+# <span style="font-family: cursive; font-size: 2.5rem;">Wispers on the Wind</span>: The Wind & Wireless Blog ✈️  
 [Wind & Wireless – What Happens When You Remove Restrictions? You Soar.](https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0)  
 ✍️ **Read the full story on Medium!** Click the link above to see how I built Wind & Wireless using open-source and free tools!
 
