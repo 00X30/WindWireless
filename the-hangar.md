@@ -17,6 +17,8 @@ title: The Hangar
 {% endraw %}
 
 <p><strong>Wispers on the Wind.</strong></p>
+
+<p><strong>Word from the Tower.</strong></p>
 <!-- start feedwind code -->
 <script type="text/javascript"
         src="https://feed.mikle.com/js/fw-loader.js"
