@@ -17,7 +17,7 @@ title: The Hangar
 {% endraw %}
 
 <p><strong>Wispers on the Wind.</strong></p>
-
+<iframe src="https://medium.com/feed/@ekwedar" width="100%" height="600" frameborder="0"></iframe>
 <p><strong>Word from the Tower.</strong></p>
 <!-- start feedwind code -->
 <script type="text/javascript"
