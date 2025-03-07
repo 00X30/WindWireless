@@ -18,6 +18,9 @@ title: The Hangar
 
 <p><strong>Wispers on the Wind.</strong></p>
 [Wind & Wireless – What Happens When You Remove Restrictions? You Soar.](https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0)  
+✍️ **Read the full story on Medium!** Click the link above to see how I built Wind & Wireless using open-source and free tools!
+
+
 <p><strong>Word from the Tower.</strong></p>
 <!-- start feedwind code -->
 <script type="text/javascript"
