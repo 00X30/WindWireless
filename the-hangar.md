@@ -17,7 +17,7 @@ title: The Hangar
 {% endraw %}
 
 <p><strong>Wispers on the Wind.</strong></p>
-<iframe src="https://medium.com/feed/@ekwedar" width="100%" height="600" frameborder="0"></iframe>
+[Wind & Wireless – What Happens When You Remove Restrictions? You Soar.](https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0)  
 <p><strong>Word from the Tower.</strong></p>
 <!-- start feedwind code -->
 <script type="text/javascript"
