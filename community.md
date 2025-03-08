@@ -11,7 +11,7 @@ Wind & Wireless is a launchpad—a place where ideas take off. This site is the 
 
 Most of the discussion, comments, and updates happen over on **YouTube**. If you want to engage, drop a comment on a video or check out the **Community tab**.  
 
-👉 [Join the Conversation on YouTube](https://www.youtube.com/@YourChannel)  
+👉 [Join the Conversation on YouTube](https://www.youtube.com/@windwireless)  
 
 ## What This Is About  
 
@@ -22,6 +22,6 @@ If you’re here, you’re probably into the same things—so welcome aboard!
 ## Contact  
 
 For direct inquiries or collaborations, hit me up:  
-📧 **windwirelessadmin@something.something**  
+📧 **windwirelessadmin@something.something (coming soon)**  
 
 Let's keep the skies clear and the signals strong. See you out there.  
