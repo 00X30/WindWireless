@@ -5,27 +5,80 @@ title: The Hangar
 
 <h2>The Hangar</h2>
 
-<!-- First (new) widget: 171544/ -->
-<!-- Placed directly below the header, above the other feed -->
-{% raw %}
-<!-- start feedwind code -->
-<script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
-        preloader-text="Loading" 
-        data-fw-param="171544/">
+<div id="rss-feed">
+    <p>Loading latest aviation news...</p>
+</div>
+
+<script>
+async function fetchRSS() {
+    const rssFeedUrl = "https://theaviationist.com/feeds/";
+    
+    try {
+        // Fetch the RSS feed and parse it
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssFeedUrl)}`);
+        const data = await response.json();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+
+        // Extract items (articles)
+        const items = xmlDoc.querySelectorAll("item");
+        let latestArticles = [];
+        
+        items.forEach((item, index) => {
+            if (index < 10) { // Store the latest 10 articles
+                latestArticles.push({
+                    title: item.querySelector("title").textContent,
+                    link: item.querySelector("link").textContent,
+                    date: item.querySelector("pubDate").textContent
+                });
+            }
+        });
+
+        // Store in Local Storage for daily caching
+        localStorage.setItem("cachedArticles", JSON.stringify(latestArticles));
+        localStorage.setItem("lastUpdate", new Date().toISOString());
+
+        // Display the latest 3
+        displayArticles(latestArticles.slice(0, 3));
+
+    } catch (error) {
+        console.error("Error fetching RSS:", error);
+        document.getElementById("rss-feed").innerHTML = "<p>Failed to load articles.</p>";
+    }
+}
+
+function displayArticles(articles) {
+    const feedContainer = document.getElementById("rss-feed");
+    feedContainer.innerHTML = ""; // Clear placeholder text
+
+    articles.forEach(article => {
+        const articleElement = document.createElement("div");
+        articleElement.innerHTML = `
+            <p>
+                <strong><a href="${article.link}" target="_blank">${article.title}</a></strong> <br>
+                <small>${new Date(article.date).toLocaleDateString()}</small>
+            </p>
+            <hr>
+        `;
+        feedContainer.appendChild(articleElement);
+    });
+}
+
+// Check if cached data is available & fresh
+const lastUpdate = localStorage.getItem("lastUpdate");
+const cachedArticles = localStorage.getItem("cachedArticles");
+
+if (cachedArticles && lastUpdate) {
+    const lastUpdateDate = new Date(lastUpdate);
+    const now = new Date();
+
+    // Refresh the feed if it's a new day
+    if (now.toDateString() === lastUpdateDate.toDateString()) {
+        displayArticles(JSON.parse(cachedArticles).slice(0, 3));
+    } else {
+        fetchRSS();
+    }
+} else {
+    fetchRSS();
+}
 </script>
-<!-- end feedwind code -->
-{% endraw %}
-
-# <span style="font-family: cursive; font-size: 2.5rem;">Wispers on the Wind</span>: The Wind & Wireless Blog ✈️  
-[Wind & Wireless – What Happens When You Remove Restrictions? You Soar.](https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0)  
-✍️ **Read the full story on Medium!** Click the link above to see how I built Wind & Wireless using open-source and free tools!
-
-
-<p><strong>Word from the Tower.</strong></p>
-<!-- start feedwind code -->
-<script type="text/javascript"
-        src="https://feed.mikle.com/js/fw-loader.js"
-        preloader-text="Loading"
-        data-fw-param="171540/">
-</script>
-<!-- end feedwind code -->
