@@ -36,7 +36,7 @@ async function fetchRSS() {
     
     try {
         // Fetch the RSS feed and parse it
-        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssFeedUrl)}`);
+        const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(rssFeedUrl)}`);
         const data = await response.json();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data.contents, "text/xml");
