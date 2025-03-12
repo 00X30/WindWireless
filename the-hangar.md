@@ -2,13 +2,23 @@
 
 Welcome to **The Hangar**—the central hub for all things Wind & Wireless. Whether you're here for **research, logistics, protocols, or deep dives into aviation & wireless systems**, this is where it all comes together.  
 
-## **🚀 Mission Control**  
-This is more than a repository—it's an evolving ecosystem of **ideas, innovation, and execution.**  
+---
+
+## **📺 Latest Videos: Mission Briefing**  
+🎬 **[Latest Protocols Video](#)** – Breaking down **functional systems & processes**.  
+🎬 **[Latest Logistics Analysis](#)** – How global supply chains are shifting.  
+🎬 **[Firefighting Aircraft Special](#)** – The role of aviation in wildfire response.  
+
+💡 *Check out more on the [WW Video Archive](#).*  
+
+---
 
 ## **⚙️ Systems & Resources**  
 🔹 **[WW Website](#)** – The main site, updated regularly.  
-🔹 **[Latest Protocols Video](#)** – Breaking down **functional systems & processes.**  
 🔹 **[Industry Research](#)** – Tracking **wireless, aviation, and logistics** developments.  
+🔹 **[Flightradar & Airspace](#)** – Track active air corridors.  
+🔹 **[Global Logistics Dashboard](#)** – Current freight & shipping status.  
+🔹 **[Weather & Wind Patterns](#)** – Live atmospheric data.  
 
 ---
 
@@ -39,13 +49,6 @@ This is more than a repository—it's an evolving ecosystem of **ideas, innovati
 </script>
 
 💡 *Want the full archive?* Browse all articles on **[Medium](https://medium.com/@ekwedar).**  
-
----
-
-## **📡 The Hangar Live**  
-🔹 **[Flightradar & Airspace](#)** – Track active air corridors.  
-🔹 **[Global Logistics Dashboard](#)** – Current freight & shipping status.  
-🔹 **[Weather & Wind Patterns](#)** – Live atmospheric data.  
 
 ---
 
