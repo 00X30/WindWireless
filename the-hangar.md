@@ -4,7 +4,13 @@ title: The Hangar
 ---
 
 <h2>The Hangar</h2>
+<!-- Word from the Tower -->
+<p><strong>Word from the Tower.</strong></p>
 
+<div id="rss-feed">
+    <p>Loading latest aviation news...</p>
+</div>
+<script>
 <div id="rss-feed">
     <p>Loading latest aviation news...</p>
 </div>
