@@ -4,13 +4,28 @@ title: The Hangar
 ---
 
 <h2>The Hangar</h2>
-<!-- Word from the Tower -->
-<p><strong>Word from the Tower.</strong></p>
 
-<div id="rss-feed">
-    <p>Loading latest aviation news...</p>
+<!-- 🎥 YouTube Widget -->
+<div>
+    <h3>Wind & Wireless</h3>
+    <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
+        preloader-text="Loading" 
+        data-fw-param="171544/">
+    </script>
 </div>
-<script>
+
+<!-- 📝 Wispers on the Wind: Blog Section -->
+<h3><span style="font-family: cursive; font-size: 2.5rem;">Wispers on the Wind</span>: The Wind & Wireless Blog ✈️</h3>
+
+<p>
+    <a href="https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0">
+        Wind & Wireless – What Happens When You Remove Restrictions? You Soar.
+    </a>  
+</p>
+<p>✍️ <strong>Read the full story on Medium!</strong> Click the link above to see how I built Wind & Wireless using open-source and free tools!</p>
+
+<!-- ✈️ Word from the Tower: RSS-powered Aviation News -->
+<h3>Word from the Tower</h3>
 <div id="rss-feed">
     <p>Loading latest aviation news...</p>
 </div>
