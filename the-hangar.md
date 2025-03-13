@@ -3,13 +3,15 @@ layout: default
 title: The Hangar
 ---
 
-<h2 style="text-align: center; font-size: 3rem; color: #fff; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);">
+<h2 style="text-align: center; font-size: 3rem; color: #5D3FD3; text-shadow: 3px 3px 8px rgba(93, 63, 211, 0.8);">
     The Hangar
 </h2>
 
 <!-- 🎥 YouTube Widget -->
 <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 2rem;">
-    <h3 style="font-size: 2rem; text-align: center; color: #4ecdc4;">Wind & Wireless</h3>
+    <h3 style="font-size: 2rem; text-align: center; color: #20B2AA; text-shadow: 1px 1px 5px rgba(32, 178, 170, 0.8);">
+        Wind & Wireless
+    </h3>
     <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
         preloader-text="Loading" 
         data-fw-param="171544/">
@@ -17,13 +19,13 @@ title: The Hangar
 </div>
 
 <!-- 📝 Wispers on the Wind: Blog Section -->
-<div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); margin-bottom: 2rem;">
-    <h3 style="font-family: cursive; font-size: 2.5rem; color: #ff6b6b; text-align: center;">
+<div style="background: rgba(32, 178, 170, 0.15); padding: 1.5rem; border-radius: 12px; box-shadow: 0px 0px 12px rgba(93, 63, 211, 0.4); margin-bottom: 2rem;">
+    <h3 style="font-family: cursive; font-size: 2.5rem; color: #5D3FD3; text-align: center; text-shadow: 2px 2px 6px rgba(93, 63, 211, 0.6);">
         Wispers on the Wind ✈️
     </h3>
     <p style="text-align: center;">
         <a href="https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0" 
-           style="color: #fff; font-weight: bold; text-decoration: underline;">
+           style="color: #20B2AA; font-weight: bold; text-decoration: underline;">
             Wind & Wireless – What Happens When You Remove Restrictions? You Soar.
         </a>
     </p>
@@ -33,8 +35,10 @@ title: The Hangar
 </div>
 
 <!-- ✈️ Word from the Tower: RSS-powered Aviation News -->
-<div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
-    <h3 style="font-size: 2rem; text-align: center; color: #ffe66d;">Word from the Tower</h3>
+<div style="background: rgba(93, 63, 211, 0.15); padding: 1.5rem; border-radius: 12px; box-shadow: 0px 0px 12px rgba(32, 178, 170, 0.4);">
+    <h3 style="font-size: 2rem; text-align: center; color: #20B2AA; text-shadow: 2px 2px 5px rgba(32, 178, 170, 0.8);">
+        Word from the Tower
+    </h3>
     <div id="rss-feed" style="padding: 1rem; text-align: center;">
         <p style="color: #ddd;">Loading latest aviation news...</p>
     </div>
@@ -85,8 +89,10 @@ function displayArticles(articles) {
     articles.forEach(article => {
         const articleElement = document.createElement("div");
         articleElement.innerHTML = `
-            <p style="padding: 10px; background: rgba(255, 255, 255, 0.2); border-radius: 5px; margin-bottom: 10px;">
-                <strong><a href="${article.link}" target="_blank" style="color: #4ecdc4; text-decoration: none;">${article.title}</a></strong> <br>
+            <p style="padding: 10px; background: rgba(32, 178, 170, 0.2); border-radius: 5px; margin-bottom: 10px; text-align: left;">
+                <strong><a href="${article.link}" target="_blank" style="color: #5D3FD3; text-decoration: none; font-size: 1.2rem;">
+                    ${article.title}
+                </a></strong> <br>
                 <small style="color: #ddd;">${new Date(article.date).toLocaleDateString()}</small>
             </p>
         `;
