@@ -25,7 +25,7 @@ title: The Hangar
     </h3>
     <p style="text-align: center;">
         <a href="https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0" 
-           style="color: #20B2AA; font-weight: bold; text-decoration: underline;">
+   style="color: #5D3FD3; font-weight: bold; text-decoration: underline;">
             Wind & Wireless – What Happens When You Remove Restrictions? You Soar.
         </a>
     </p>
