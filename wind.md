@@ -8,7 +8,7 @@ title: Wind - Weather & Climate Trends
 <!-- 📡 Live Weather Alerts -->
 <div class="section">
     <h2>📡 Live Weather Alerts</h2>
-    <div id="weather-feed">
+    <div id="weather-carousel" class="carousel-container">
         <p>Loading latest weather news...</p>
     </div>
 </div>
@@ -48,87 +48,86 @@ title: Wind - Weather & Climate Trends
 </div>
 
 <style>
-.section {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.2);
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
 }
-h2 {
-    color: #20B2AA;
-    text-shadow: 2px 2px 5px rgba(32, 178, 170, 0.8);
+
+.carousel-item {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
+
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+}
+
 .news-item {
     margin-bottom: 10px;
     padding: 10px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
 }
-.video-list a {
-    color: #5D3FD3;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-}
-.video-list a:hover {
-    color: #20B2AA;
-}
 </style>
 
 <script>
 async function fetchWeatherRSS() {
     const rssFeeds = [
-        "https://alerts.weather.gov/cap/us.php?x=1", // NOAA
-        "https://earthobservatory.nasa.gov/rss/eo.rss", // NASA
-        "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml", // BBC
-        "https://www.aljazeera.com/xml/rss/all.xml", // Al Jazeera
-        "https://www.eumetsat.int/rss.xml" // EUMETSAT
+        "https://earthobservatory.nasa.gov/rss/eo.rss", // NASA Earth Observatory
+        "https://climate.nasa.gov/feed/", // NASA Climate
+        "https://www.nasa.gov/rss/dyn/earth.rss", // NASA Earth Science
+        "https://www.nhc.noaa.gov/index-at.xml", // NOAA National Hurricane Center
+        "https://www.tsunami.gov/feeds.xml" // NOAA Tsunami Warnings
     ];
 
     let allArticles = [];
 
     for (const feedUrl of rssFeeds) {
         try {
-            const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(feedUrl)}`);
-            const data = await response.text();
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(data, "text/xml");
+            const response = await fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(feedUrl)}`);
+            const data = await response.json();
 
-            const items = xmlDoc.querySelectorAll("item");
-            items.forEach((item, index) => {
-                if (index < 2) { // Get only top 2 from each feed (total 5 max)
+            if (data.items) {
+                data.items.slice(0, 2).forEach(item => {
                     allArticles.push({
-                        title: item.querySelector("title").textContent,
-                        link: item.querySelector("link").textContent,
-                        source: new URL(feedUrl).hostname
+                        title: item.title,
+                        link: item.link,
+                        source: new URL(feedUrl).hostname,
+                        date: new Date(item.pubDate).getTime() // Sort by latest
                     });
-                }
-            });
-
+                });
+            }
         } catch (error) {
             console.error(`Failed to fetch ${feedUrl}:`, error);
         }
     }
 
-    // Sort articles by latest if we can extract dates later
-    allArticles = allArticles.slice(0, 5); // Keep only latest 5
+    // Sort by date (latest first) and keep only top 5
+    allArticles = allArticles.sort((a, b) => b.date - a.date).slice(0, 5);
 
-    displayWeatherAlerts(allArticles);
+    displayWeatherCarousel(allArticles);
 }
 
-function displayWeatherAlerts(articles) {
-    const feedContainer = document.getElementById("weather-feed");
-    feedContainer.innerHTML = "";
+function displayWeatherCarousel(articles) {
+    const carouselContainer = document.getElementById("weather-carousel");
+    carouselContainer.innerHTML = ""; // Clear previous entries
 
     if (articles.length === 0) {
-        feedContainer.innerHTML = "<p style='color: red;'>No weather alerts available.</p>";
+        carouselContainer.innerHTML = "<p style='color: red;'>No weather alerts available.</p>";
         return;
     }
 
-    articles.forEach(article => {
-        const articleElement = document.createElement("div");
-        articleElement.innerHTML = `
+    articles.forEach((article, index) => {
+        const slide = document.createElement("div");
+        slide.classList.add("carousel-item");
+        if (index === 0) slide.classList.add("active"); // First one is visible
+
+        slide.innerHTML = `
             <p class="news-item">
                 <strong><a href="${article.link}" target="_blank" style="color: #5D3FD3;">
                     ${article.title}
@@ -136,8 +135,22 @@ function displayWeatherAlerts(articles) {
                 <small style="color: #ccc;">${article.source}</small>
             </p>
         `;
-        feedContainer.appendChild(articleElement);
+        carouselContainer.appendChild(slide);
     });
+
+    startCarousel();
+}
+
+function startCarousel() {
+    let index = 0;
+    const slides = document.querySelectorAll(".carousel-item");
+    if (slides.length === 0) return;
+
+    setInterval(() => {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+        index = (index + 1) % slides.length;
+    }, 5000); // Rotate every 5 seconds
 }
 
 // Run the fetch function
