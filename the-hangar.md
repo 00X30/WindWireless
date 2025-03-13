@@ -49,18 +49,16 @@ async function fetchRSS() {
     const rssFeedUrl = "https://theaviationist.com/feeds/";
 
     try {
-        // Fetch the RSS feed and parse it
         const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(rssFeedUrl)}`);
         const data = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, "text/xml");
 
-        // Extract items (articles)
         const items = xmlDoc.querySelectorAll("item");
         let latestArticles = [];
 
         items.forEach((item, index) => {
-            if (index < 10) { // Store the latest 10 articles
+            if (index < 10) {
                 latestArticles.push({
                     title: item.querySelector("title").textContent,
                     link: item.querySelector("link").textContent,
@@ -69,11 +67,9 @@ async function fetchRSS() {
             }
         });
 
-        // Store in Local Storage for daily caching
         localStorage.setItem("cachedArticles", JSON.stringify(latestArticles));
         localStorage.setItem("lastUpdate", new Date().toISOString());
 
-        // Display the latest 3
         displayArticles(latestArticles.slice(0, 3));
 
     } catch (error) {
@@ -84,15 +80,18 @@ async function fetchRSS() {
 
 function displayArticles(articles) {
     const feedContainer = document.getElementById("rss-feed");
-    feedContainer.innerHTML = ""; // Clear placeholder text
+    feedContainer.innerHTML = "";
 
     articles.forEach(article => {
         const articleElement = document.createElement("div");
         articleElement.innerHTML = `
-            <p style="padding: 10px; background: rgba(32, 178, 170, 0.2); border-radius: 5px; margin-bottom: 10px; text-align: left;">
-                <strong><a href="${article.link}" target="_blank" style="color: #5D3FD3; text-decoration: none; font-size: 1.2rem;">
-                    ${article.title}
-                </a></strong> <br>
+            <p style="padding: 10px; background: rgba(32, 178, 170, 0.2); border-radius: 5px; margin-bottom: 10px;">
+                <strong>
+                    <a href="${article.link}" target="_blank" style="color: #5D3FD3; text-decoration: none;">
+                        ${article.title}
+                    </a>
+                </strong>
+                <br>
                 <small style="color: #ddd;">${new Date(article.date).toLocaleDateString()}</small>
             </p>
         `;
@@ -100,7 +99,7 @@ function displayArticles(articles) {
     });
 }
 
-// Check if cached data is available & fresh
+// ✅ Logic for Cached Data and Refresh
 const lastUpdate = localStorage.getItem("lastUpdate");
 const cachedArticles = localStorage.getItem("cachedArticles");
 
@@ -108,7 +107,6 @@ if (cachedArticles && lastUpdate) {
     const lastUpdateDate = new Date(lastUpdate);
     const now = new Date();
 
-    // Refresh the feed if it's a new day
     if (now.toDateString() === lastUpdateDate.toDateString()) {
         displayArticles(JSON.parse(cachedArticles).slice(0, 3));
     } else {
@@ -118,3 +116,4 @@ if (cachedArticles && lastUpdate) {
     fetchRSS();
 }
 </script>
+
