@@ -3,7 +3,7 @@ layout: default
 title: Wind - Weather & Climate Trends
 ---
 
-<h1 style="text-align: center;">Wind: Weather & Climate Trends</h1>
+<h1 style="text-align: center; color: #5D3FD3;">Wind: Weather & Climate Trends</h1>
 
 <!-- 📡 Live Weather Alerts -->
 <div class="section">
