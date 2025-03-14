@@ -6,12 +6,15 @@ title: The Hangar
 <h1 style="text-align: left; color: #5D3FD3;">Aviation: Flight News & Trends</h1>
 
 <!-- 🎥 YouTube Widget -->
-<div>
-    <h3>Wind & Wireless</h3>
-    <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
-        preloader-text="Loading" 
-        data-fw-param="171544/">
-    </script>
+<div class="section">
+    <h2 style="text-align: left;">🎥 Top Videos</h2>
+    <!-- Wrap the widget in a container with an ID for styling -->
+    <div id="youtube-mikle-container">
+        <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
+            preloader-text="Loading" 
+            data-fw-param="171544/">
+        </script>
+    </div>
 </div>
 
 <!-- ✈️ Live Aviation Alerts -->
@@ -57,6 +60,7 @@ title: The Hangar
 </div>
 
 <style>
+/* Carousel & General Section Styles */
 .carousel-container {
     position: relative;
     width: 100%;
@@ -107,13 +111,24 @@ h2 {
     color: #20B2AA;
 }
 
-/* Styling for YouTube Mikle Plugin video items */
+/* Styling for the YouTube Mikle Plugin widget container */
+#youtube-mikle-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Style individual video items - assuming they render as iframes or elements with class "video-item" */
+#youtube-mikle-container iframe,
 #youtube-mikle-container .video-item {
     flex: 0 0 auto;
     width: 300px;
     height: 169px;
     border-radius: 5px;
-    overflow: hidden;
 }
 </style>
 
@@ -198,16 +213,5 @@ function startCarousel() {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Aviation RSS Fetch
     fetchAviationRSS();
-
-    // Initialize YouTube Mikle Plugin for top videos
-    if (typeof MikleYouTube !== 'undefined') {
-        new MikleYouTube({
-            container: '#youtube-mikle-container',
-            videoCount: 5  // fetch 5 videos
-            // additional config options can be added here as needed
-        });
-    } else {
-        console.error("MikleYouTube plugin not loaded.");
-    }
 });
 </script>
