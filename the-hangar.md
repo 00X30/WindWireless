@@ -5,6 +5,15 @@ title: The Hangar
 
 <h1 style="text-align: left; color: #5D3FD3;">Aviation: Flight News & Trends</h1>
 
+<!-- 🎥 YouTube Widget -->
+<div>
+    <h3>Wind & Wireless</h3>
+    <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
+        preloader-text="Loading" 
+        data-fw-param="171544/">
+    </script>
+</div>
+
 <!-- ✈️ Live Aviation Alerts -->
 <div class="section">
     <h2 style="text-align: left;">✈️ Live Aviation Alerts</h2>
@@ -75,7 +84,7 @@ title: The Hangar
 }
 
 .section {
-    background: rgba(0, 0, 0, 0.6); /* match the same style from wind.md */
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -97,17 +106,25 @@ h2 {
 .video-list a:hover {
     color: #20B2AA;
 }
+
+/* Styling for YouTube Mikle Plugin video items */
+#youtube-mikle-container .video-item {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 169px;
+    border-radius: 5px;
+    overflow: hidden;
+}
 </style>
 
 <script>
 async function fetchAviationRSS() {
-    // Replace these with any aviation feeds you prefer
     const rssFeeds = [
-        "https://www.aopa.org/news-and-media/news/rss",    // AOPA
-        "https://www.flightglobal.com/feeds/allnews",      // FlightGlobal
-        "https://aviationweek.com/rss.xml",               // Aviation Week
-        "https://www.faa.gov/newsroom/rss",               // FAA
-        "https://www.nasa.gov/rss/dyn/aeronautics.rss"    // NASA Aeronautics
+        "https://www.aopa.org/news-and-media/news/rss",
+        "https://www.flightglobal.com/feeds/allnews",
+        "https://aviationweek.com/rss.xml",
+        "https://www.faa.gov/newsroom/rss",
+        "https://www.nasa.gov/rss/dyn/aeronautics.rss"
     ];
 
     let allArticles = [];
@@ -119,13 +136,12 @@ async function fetchAviationRSS() {
             const data = await response.json();
 
             if (data.items) {
-                // Grab a few items per feed
                 data.items.slice(0, 2).forEach(item => {
                     allArticles.push({
                         title: item.title,
                         link: item.link,
                         source: new URL(feedUrl).hostname,
-                        date: new Date(item.pubDate).getTime() // for sorting
+                        date: new Date(item.pubDate).getTime()
                     });
                 });
             }
@@ -134,7 +150,6 @@ async function fetchAviationRSS() {
         }
     }
 
-    // Sort by latest publication date
     allArticles = allArticles.sort((a, b) => b.date - a.date).slice(0, 5);
 
     displayAviationCarousel(allArticles);
@@ -142,7 +157,7 @@ async function fetchAviationRSS() {
 
 function displayAviationCarousel(articles) {
     const carouselContainer = document.getElementById("aviation-carousel");
-    carouselContainer.innerHTML = ""; // Clear old content
+    carouselContainer.innerHTML = "";
 
     if (articles.length === 0) {
         carouselContainer.innerHTML = "<p style='color: red;'>No aviation alerts available.</p>";
@@ -177,9 +192,22 @@ function startCarousel() {
         slides.forEach(slide => slide.classList.remove("active"));
         slides[index].classList.add("active");
         index = (index + 1) % slides.length;
-    }, 5000); // switch every 5 seconds
+    }, 5000);
 }
 
-// Initialize Aviation RSS fetch
-fetchAviationRSS();
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Aviation RSS Fetch
+    fetchAviationRSS();
+
+    // Initialize YouTube Mikle Plugin for top videos
+    if (typeof MikleYouTube !== 'undefined') {
+        new MikleYouTube({
+            container: '#youtube-mikle-container',
+            videoCount: 5  // fetch 5 videos
+            // additional config options can be added here as needed
+        });
+    } else {
+        console.error("MikleYouTube plugin not loaded.");
+    }
+});
 </script>
