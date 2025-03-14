@@ -3,7 +3,7 @@ layout: default
 title: The Hangar
 ---
 
-<h1 style="text-align: left; color: #5D3FD3;">Aviation: Flight News & Trends</h1>
+<h1 style="text-align: left; color: #5D3FD3;">The Hangar</h1>
 
 <!-- 🎥 YouTube Widget -->
 <div class="section">
