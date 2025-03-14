@@ -22,6 +22,6 @@ If you’re here, you’re probably into the same things—so welcome aboard!
 ## Contact  
 
 For direct inquiries or collaborations, hit me up:  
-📧 **windwirelessadmin@something.something (coming soon)**  
+📧 **windwireless@proton.me**  
 
 Let's keep the skies clear and the signals strong. See you out there.  
