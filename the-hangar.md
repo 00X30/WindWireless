@@ -3,13 +3,13 @@ layout: default
 title: The Hangar
 ---
 
-<h2 style="text-align: center; font-size: 3rem; color: #5D3FD3; text-shadow: 3px 3px 8px rgba(93, 63, 211, 0.8);">
+<h2 style="text-align: center; font-size: 2.5rem; color: #5D3FD3; text-shadow: 3px 3px 8px rgba(93, 63, 211, 0.8); margin-bottom: 1rem;">
     The Hangar
 </h2>
 
-<!-- 🎥 YouTube Widget -->
-<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 2rem;">
-    <h3 style="font-size: 2rem; text-align: center; color: #20B2AA; text-shadow: 1px 1px 5px rgba(32, 178, 170, 0.8);">
+<!-- 🎥 YouTube Widget (Now Full-Width) -->
+<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 10px; background: rgba(32, 178, 170, 0.15); border-radius: 12px; box-shadow: 0px 0px 12px rgba(93, 63, 211, 0.4); margin-bottom: 2rem;">
+    <h3 style="width: 100%; text-align: center; font-size: 2rem; color: #20B2AA; text-shadow: 1px 1px 5px rgba(32, 178, 170, 0.8);">
         Wind & Wireless
     </h3>
     <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
@@ -20,12 +20,12 @@ title: The Hangar
 
 <!-- 📝 Wispers on the Wind: Blog Section -->
 <div style="background: rgba(32, 178, 170, 0.15); padding: 1.5rem; border-radius: 12px; box-shadow: 0px 0px 12px rgba(93, 63, 211, 0.4); margin-bottom: 2rem;">
-    <h3 style="font-family: cursive; font-size: 2.5rem; color: #5D3FD3; text-align: center; text-shadow: 2px 2px 6px rgba(93, 63, 211, 0.6);">
+    <h3 style="text-align: center; font-size: 2rem; color: #5D3FD3; text-shadow: 2px 2px 6px rgba(93, 63, 211, 0.6);">
         Wispers on the Wind ✈️
     </h3>
     <p style="text-align: center;">
         <a href="https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0" 
-   style="color: #5D3FD3; font-weight: bold; text-decoration: underline;">
+           style="color: #5D3FD3; font-weight: bold; text-decoration: underline;">
             Wind & Wireless – What Happens When You Remove Restrictions? You Soar.
         </a>
     </p>
@@ -35,20 +35,21 @@ title: The Hangar
 </div>
 
 <!-- ✈️ Word from the Tower: RSS-powered Aviation News -->
-<div style="background: rgba(93, 63, 211, 0.15); padding: 1.5rem; border-radius: 12px; box-shadow: 0px 0px 12px rgba(32, 178, 170, 0.4);">
-    <h3 style="font-size: 2rem; text-align: center; color: #20B2AA; text-shadow: 2px 2px 5px rgba(32, 178, 170, 0.8);">
-        Word from the Tower
+<div style="background: rgba(93, 63, 211, 0.15); padding: 1.5rem; border-radius: 12px; box-shadow: 0px 0px 12px rgba(32, 178, 170, 0.4); margin-bottom: 2rem;">
+    <h3 style="text-align: center; font-size: 2rem; color: #20B2AA; text-shadow: 2px 2px 5px rgba(32, 178, 170, 0.8);">
+        Word from the Tower ✈️
     </h3>
-    <div id="rss-feed" style="padding: 1rem; text-align: center;">
+    <div id="aviation-rss" style="padding: 1rem; text-align: center;">
         <p style="color: #ddd;">Loading latest aviation news...</p>
     </div>
 </div>
 
 <script>
-async function fetchRSS() {
+async function fetchAviationRSS() {
     const rssFeedUrl = "https://theaviationist.com/feeds/";
 
     try {
+        console.log("Fetching RSS from:", rssFeedUrl);
         const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(rssFeedUrl)}`);
         const data = await response.text();
         const parser = new DOMParser();
@@ -58,7 +59,7 @@ async function fetchRSS() {
         let latestArticles = [];
 
         items.forEach((item, index) => {
-            if (index < 10) {
+            if (index < 5) { // Show top 5 articles
                 latestArticles.push({
                     title: item.querySelector("title").textContent,
                     link: item.querySelector("link").textContent,
@@ -67,19 +68,19 @@ async function fetchRSS() {
             }
         });
 
-        localStorage.setItem("cachedArticles", JSON.stringify(latestArticles));
-        localStorage.setItem("lastUpdate", new Date().toISOString());
+        localStorage.setItem("cachedAviationArticles", JSON.stringify(latestArticles));
+        localStorage.setItem("lastAviationUpdate", new Date().toISOString());
 
-        displayArticles(latestArticles.slice(0, 3));
+        displayAviationArticles(latestArticles);
 
     } catch (error) {
         console.error("Error fetching RSS:", error);
-        document.getElementById("rss-feed").innerHTML = "<p style='color: red;'>Failed to load articles.</p>";
+        document.getElementById("aviation-rss").innerHTML = "<p style='color: red;'>Failed to load articles.</p>";
     }
 }
 
-function displayArticles(articles) {
-    const feedContainer = document.getElementById("rss-feed");
+function displayAviationArticles(articles) {
+    const feedContainer = document.getElementById("aviation-rss");
     feedContainer.innerHTML = "";
 
     articles.forEach(article => {
@@ -97,23 +98,12 @@ function displayArticles(articles) {
         `;
         feedContainer.appendChild(articleElement);
     });
+
+    console.log("✅ Aviation news updated!");
 }
 
-// ✅ Logic for Cached Data and Refresh
-const lastUpdate = localStorage.getItem("lastUpdate");
-const cachedArticles = localStorage.getItem("cachedArticles");
+// ✅ Check for Cached Data and Refresh if Needed
+const lastAviationUpdate = localStorage.getItem("lastAviationUpdate");
+const cachedAviationArticles = localStorage.getItem("cachedAviationArticles");
 
-if (cachedArticles && lastUpdate) {
-    const lastUpdateDate = new Date(lastUpdate);
-    const now = new Date();
-
-    if (now.toDateString() === lastUpdateDate.toDateString()) {
-        displayArticles(JSON.parse(cachedArticles).slice(0, 3));
-    } else {
-        fetchRSS();
-    }
-} else {
-    fetchRSS();
-}
-</script>
-
+if (
