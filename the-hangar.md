@@ -2,7 +2,7 @@
 layout: default
 title: The Hangar
 ---
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
