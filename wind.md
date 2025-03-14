@@ -179,4 +179,72 @@ function startCarousel() {
 
 //
 ::contentReference[oaicite:0]{index=0}
- 
+<script>
+async function fetchWeatherRSS() {
+    const rssFeeds = [
+        "https://www.nhc.noaa.gov/index-at.xml", // NOAA National Hurricane Center Atlantic
+        "https://www.nhc.noaa.gov/index-ep.xml", // NOAA National Hurricane Center Eastern Pacific
+        "https://www.weather.gov/rss/warning/USZ076.xml", // NOAA Severe Weather Warnings
+        "https://www.tsunami.gov/feeds.xml", // NOAA Tsunami Warnings
+        "https://earthobservatory.nasa.gov/subscribe/feeds" // NASA Earth Observatory
+    ];
+
+    let allArticles = [];
+
+    for (const feedUrl of rssFeeds) {
+        try {
+            console.log(`Fetching: ${feedUrl}`); // Debugging
+            const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`);
+            const data = await response.json();
+
+            if (data.items) {
+                data.items.slice(0, 2).forEach(item => {
+                    allArticles.push({
+                        title: item.title,
+                        link: item.link,
+                        source: new URL(feedUrl).hostname,
+                        date: new Date(item.pubDate).getTime() // Sort by latest
+                    });
+                });
+            }
+        } catch (error) {
+            console.error(`Failed to fetch ${feedUrl}:`, error);
+        }
+    }
+
+    // Sort by date (latest first) and keep only top 5
+    allArticles = allArticles.sort((a, b) => b.date - a.date).slice(0, 5);
+
+    displayWeatherAlerts(allArticles);
+}
+
+function displayWeatherAlerts(articles) {
+    const alertContainer = document.getElementById("weather-carousel");
+    alertContainer.innerHTML = ""; // Clear previous content
+
+    if (articles.length === 0) {
+        alertContainer.innerHTML = "<p style='color: red;'>No weather alerts available.</p>";
+        return;
+    }
+
+    articles.forEach(article => {
+        const alertItem = document.createElement("p");
+        alertItem.classList.add("news-item");
+        alertItem.innerHTML = `
+            <strong><a href="${article.link}" target="_blank" style="color: #5D3FD3;">
+                ${article.title}
+            </a></strong> <br>
+            <small style="color: #ccc;">${article.source}</small>
+        `;
+        alertContainer.appendChild(alertItem);
+    });
+
+    console.log("✅ Weather alerts updated!");
+}
+
+// Run RSS Fetching
+fetchWeatherRSS();
+</script>
+
+</body>
+</html> 
