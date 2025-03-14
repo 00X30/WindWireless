@@ -3,101 +3,183 @@ layout: default
 title: The Hangar
 ---
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Hangar</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body {
-            background: #1a1a2e;
-            color: #5D3FD3;
-            font-family: Arial, sans-serif;
-        }
-        .section {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.2);
-        }
-        h2 {
-            color: #20B2AA;
-            text-shadow: 2px 2px 5px rgba(32, 178, 170, 0.8);
-            text-align: center;
-        }
-        .news-item {
-            padding: 10px;
-            background: rgba(32, 178, 170, 0.2);
-            border-radius: 5px;
-        }
-    </style>
-</head>
-<body>
-    <h2>The Hangar</h2>
-   <!-- 🎥 YouTube Widget -->
-    <div class="section">
-        <h3 style="text-align: center; color: #20B2AA;">Wind & Wireless</h3>
-        <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
-            preloader-text="Loading" 
-            data-fw-param="171544/"></script>
-    </div>
+<h1 style="text-align: left; color: #5D3FD3;">Aviation: Flight News & Trends</h1>
 
-    <!-- ✈️ Word from the Tower: RSS-powered Aviation News -->
-    <div class="section">
-        <h3>✈️ Word from the Tower</h3>
-        <div id="rss-feed" class="news-item">Loading latest aviation news...</div>
+<!-- ✈️ Live Aviation Alerts -->
+<div class="section">
+    <h2 style="text-align: left;">✈️ Live Aviation Alerts</h2>
+    <div id="aviation-carousel" class="carousel-container">
+        <p style="text-align: left;">Loading latest aviation news...</p>
     </div>
+</div>
 
-    <script>
-    async function fetchRSS() {
-        const rssFeedUrl = "https://theaviationist.com/feeds/";
+<!-- 📜 Historic Aviation Milestones -->
+<div class="section">
+    <h2 style="text-align: left;">📜 Historic Aviation Milestones</h2>
+    <p style="text-align: left;">1903: Wright Brothers’ first powered flight at Kitty Hawk.</p>
+    <p style="text-align: left;">1927: Charles Lindbergh completes first solo Atlantic crossing.</p>
+    <p style="text-align: left;">1981: Space Shuttle Columbia launches STS-1 mission.</p>
+</div>
+
+<!-- 🛫 Major Recent Aviation News -->
+<div class="section">
+    <h2 style="text-align: left;">🛫 Major Recent Aviation News</h2>
+    <div class="news-item" style="text-align: left;">New supersonic jet concept aims to cut transatlantic time in half.</div>
+    <div class="news-item" style="text-align: left;">FAA proposes new drone regulations for beyond-visual-line-of-sight flights.</div>
+    <div class="news-item" style="text-align: left;">Airline orders 50 next-gen hybrid-electric planes.</div>
+</div>
+
+<!-- 🎥 Video Reports & Analysis -->
+<div class="section">
+    <h2 style="text-align: left;">🎥 Video Reports & Analysis</h2>
+    <div class="video-list" style="text-align: left;">
+        <div><a href="#">Electric VTOL test flights: Are we there yet?</a></div>
+        <div><a href="#">Next-generation supersonic passenger jets</a></div>
+        <div><a href="#">Air traffic control modernization: The next big leap</a></div>
+    </div>
+</div>
+
+<!-- 🔮 Aviation Industry Forecasts -->
+<div class="section">
+    <h2 style="text-align: left;">🔮 Aviation Industry Forecasts</h2>
+    <p style="text-align: left;">Global air traffic expected to double by 2035.</p>
+    <p style="text-align: left;">Urban air mobility could be a $1.5 trillion market by 2040.</p>
+    <p style="text-align: left;">Sustainable aviation fuels gain traction worldwide.</p>
+</div>
+
+<style>
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: left;
+}
+
+.carousel-item {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+}
+
+.news-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.section {
+    background: rgba(0, 0, 0, 0.6); /* match the same style from wind.md */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.2);
+}
+
+h2 {
+    color: #20B2AA;
+    text-shadow: 2px 2px 5px rgba(32, 178, 170, 0.8);
+}
+
+.video-list a {
+    color: #5D3FD3;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.video-list a:hover {
+    color: #20B2AA;
+}
+</style>
+
+<script>
+async function fetchAviationRSS() {
+    // Replace these with any aviation feeds you prefer
+    const rssFeeds = [
+        "https://www.aopa.org/news-and-media/news/rss",    // AOPA
+        "https://www.flightglobal.com/feeds/allnews",      // FlightGlobal
+        "https://aviationweek.com/rss.xml",               // Aviation Week
+        "https://www.faa.gov/newsroom/rss",               // FAA
+        "https://www.nasa.gov/rss/dyn/aeronautics.rss"    // NASA Aeronautics
+    ];
+
+    let allArticles = [];
+
+    for (const feedUrl of rssFeeds) {
         try {
-            console.log("Fetching RSS from:", rssFeedUrl);
-            const response = await fetch(rssFeedUrl);
-            const data = await response.text();
-            console.log("Fetched RSS Data:", data); // Debugging output
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(data, "text/xml");
-            const items = xmlDoc.querySelectorAll("item");
-            let latestArticles = [];
-            items.forEach((item, index) => {
-                if (index < 5) {
-                    latestArticles.push({
-                        title: item.querySelector("title").textContent,
-                        link: item.querySelector("link").textContent,
-                        date: item.querySelector("pubDate").textContent
+            console.log(`Fetching: ${feedUrl}`);
+            const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`);
+            const data = await response.json();
+
+            if (data.items) {
+                // Grab a few items per feed
+                data.items.slice(0, 2).forEach(item => {
+                    allArticles.push({
+                        title: item.title,
+                        link: item.link,
+                        source: new URL(feedUrl).hostname,
+                        date: new Date(item.pubDate).getTime() // for sorting
                     });
-                }
-            });
-            displayArticles(latestArticles);
+                });
+            }
         } catch (error) {
-            console.error("Error fetching RSS:", error);
-            document.getElementById("rss-feed").innerHTML = "<p style='color: red;'>Failed to load articles.</p>";
+            console.error(`Failed to fetch ${feedUrl}:`, error);
         }
     }
 
-    function displayArticles(articles) {
-        const feedContainer = document.getElementById("rss-feed");
-        feedContainer.innerHTML = "";
-        if (articles.length === 0) {
-            feedContainer.innerHTML = "<p style='color: red;'>No articles available.</p>";
-            return;
-        }
-        articles.forEach(article => {
-            const articleElement = document.createElement("div");
-            articleElement.innerHTML = `
-                <p class="news-item">
-                    <strong><a href="${article.link}" target="_blank" style="color: #5D3FD3; text-decoration: none;">${article.title}</a></strong><br>
-                    <small style="color: #ccc;">${new Date(article.date).toLocaleDateString()}</small>
-                </p>
-            `;
-            feedContainer.appendChild(articleElement);
-        });
-    }
-    fetchRSS();
-    </script>
-</body>
-</html>
+    // Sort by latest publication date
+    allArticles = allArticles.sort((a, b) => b.date - a.date).slice(0, 5);
 
+    displayAviationCarousel(allArticles);
+}
+
+function displayAviationCarousel(articles) {
+    const carouselContainer = document.getElementById("aviation-carousel");
+    carouselContainer.innerHTML = ""; // Clear old content
+
+    if (articles.length === 0) {
+        carouselContainer.innerHTML = "<p style='color: red;'>No aviation alerts available.</p>";
+        return;
+    }
+
+    articles.forEach((article, index) => {
+        const slide = document.createElement("div");
+        slide.classList.add("carousel-item");
+        if (index === 0) slide.classList.add("active");
+
+        slide.innerHTML = `
+            <p class="news-item">
+                <strong><a href="${article.link}" target="_blank" style="color: #5D3FD3;">
+                    ${article.title}
+                </a></strong><br>
+                <small style="color: #ccc;">${article.source}</small>
+            </p>
+        `;
+        carouselContainer.appendChild(slide);
+    });
+
+    startCarousel();
+}
+
+function startCarousel() {
+    let index = 0;
+    const slides = document.querySelectorAll(".carousel-item");
+    if (slides.length === 0) return;
+
+    setInterval(() => {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+        index = (index + 1) % slides.length;
+    }, 5000); // switch every 5 seconds
+}
+
+// Initialize Aviation RSS fetch
+fetchAviationRSS();
+</script>
