@@ -29,40 +29,25 @@ title: The Hangar
             text-shadow: 2px 2px 5px rgba(32, 178, 170, 0.8);
             text-align: center;
         }
-
-        .news-item {
-            padding: 10px;
-            background: rgba(32, 178, 170, 0.2);
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
-
 <body>
 
     <h2>The Hangar</h2>
 
-    <!-- 🎥 YouTube Widget -->
+    <!-- 🎥 YouTube Videos (Expanded Full Row) -->
     <div class="section">
-        <h3 style="text-align: center;">Wind & Wireless</h3>
-        <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" preloader-text="Loading" data-fw-param="171544/"></script>
-    </div>
-
-    <!-- 📝 Blog Section -->
-    <div class="section">
-        <h3>Wispers on the Wind ✈️</h3>
-        <p><a href="https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0" 
-           style="color: #5D3FD3; font-weight: bold; text-decoration: underline;">
-            Wind & Wireless – What Happens When You Remove Restrictions? You Soar.
-        </a></p>
-        <p>✍️ <strong>Read the full story on Medium!</strong></p>
+        <h3 style="text-align: center;">Wind & Wireless Video Feed</h3>
+        <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
+            preloader-text="Loading" 
+            data-fw-param="171544/">
+        </script>
     </div>
 
     <!-- ✈️ Word from the Tower: RSS-powered Aviation News -->
     <div class="section">
-        <h3>Word from the Tower ✈️</h3>
-        <div id="aviation-rss">
+        <h3>✈️ Word from the Tower</h3>
+        <div id="rss-feed">
             <p>Loading latest aviation news...</p>
         </div>
     </div>
@@ -72,7 +57,6 @@ title: The Hangar
         const rssFeedUrl = "https://theaviationist.com/feeds/";
 
         try {
-            console.log("Fetching RSS from:", rssFeedUrl);
             const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(rssFeedUrl)}`);
             const data = await response.text();
             const parser = new DOMParser();
@@ -82,7 +66,7 @@ title: The Hangar
             let latestArticles = [];
 
             items.forEach((item, index) => {
-                if (index < 5) { 
+                if (index < 5) { // Show 5 latest
                     latestArticles.push({
                         title: item.querySelector("title").textContent,
                         link: item.querySelector("link").textContent,
@@ -98,20 +82,23 @@ title: The Hangar
 
         } catch (error) {
             console.error("Error fetching RSS:", error);
-            document.getElementById("aviation-rss").innerHTML = "<p style='color: red;'>Failed to load articles.</p>";
+            document.getElementById("rss-feed").innerHTML = "<p style='color: red;'>Failed to load articles.</p>";
         }
     }
 
     function displayAviationArticles(articles) {
-        const feedContainer = document.getElementById("aviation-rss");
+        const feedContainer = document.getElementById("rss-feed");
         feedContainer.innerHTML = "";
 
         articles.forEach(article => {
             const articleElement = document.createElement("div");
-            articleElement.classList.add("news-item");
             articleElement.innerHTML = `
-                <p>
-                    <strong><a href="${article.link}" target="_blank" style="color: #5D3FD3;">${article.title}</a></strong>
+                <p style="padding: 10px; background: rgba(32, 178, 170, 0.2); border-radius: 5px; margin-bottom: 10px;">
+                    <strong>
+                        <a href="${article.link}" target="_blank" style="color: #5D3FD3; text-decoration: none;">
+                            ${article.title}
+                        </a>
+                    </strong>
                     <br>
                     <small style="color: #ddd;">${new Date(article.date).toLocaleDateString()}</small>
                 </p>
@@ -122,7 +109,7 @@ title: The Hangar
         console.log("✅ Aviation news updated!");
     }
 
-    // ✅ Check Cache & Refresh if Needed
+    // ✅ Logic for Cached Data and Refresh
     const lastAviationUpdate = localStorage.getItem("lastAviationUpdate");
     const cachedAviationArticles = localStorage.getItem("cachedAviationArticles");
 
