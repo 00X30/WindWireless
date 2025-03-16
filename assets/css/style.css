@@ -6,22 +6,26 @@ body {
   background-repeat: no-repeat;
   margin: 0;
   font-family: sans-serif;
+  color: white; /* Ensure text is readable on dark backgrounds */
 }
 
 /* Header styling */
 .banner-header {
   text-align: center;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5); /* optional: dark overlay for readability */
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: dark overlay for readability */
   color: white;
   position: relative;
-  min-height: 200px; /* or whatever you prefer */
+  min-height: 200px;
 }
 
-/* Home page uses banner.jpg instead */
+/* Home page uses the Neon background */
 body.home-page {
-  background-image: url('../images/banner.jpg');
-} /* <-- Added this missing bracket */
+  background-image: url('../images/NeonIndex.PNG'); /* Updated to the new synthwave background */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Keeps the background static while scrolling */
+}
 
 /* Banner image on homepage */
 .banner-image {
@@ -51,7 +55,7 @@ body.home-page {
 /* Main content styling */
 main {
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.9); /* subtle background for content */
+  background-color: rgba(0, 0, 0, 0.75); /* Adjusted for better contrast on neon background */
   margin: 2rem;
   border-radius: 8px;
 }
@@ -61,4 +65,9 @@ footer {
   text-align: center;
   margin: 2rem 0;
   color: white;
+}
+
+/* Optional: Add a glowing effect for a cyberpunk aesthetic */
+h1, h2, h3, a {
+  text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8); /* Adds a neon glow effect */
 }
