@@ -11,7 +11,13 @@ body_class: home-page
 This is your hub for all things related to wind and wireless. Enjoy exploring the site!
 
 ## Featured Videos
-{% include youtube-widget.html %}  
+<div>
+    <h3>Wind & Wireless</h3>
+    <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
+        preloader-text="Loading" 
+        data-fw-param="171544/">
+    </script>
+</div>  
 
 ## Latest Stories
 {% include blog-feed.html %}  
