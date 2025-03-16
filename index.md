@@ -20,6 +20,10 @@ This is your hub for all things related to wind and wireless. Enjoy exploring th
 </div>  
 
 ## Latest Stories
-{% include blog-feed.html %}  
+Explore the latest articles, insights, and stories from our blog and Medium.
+
+### Medium Posts
+- [The Right Environment for Success](https://medium.com/@ekwedar/the-right-environment-for-success-92351637e505)
+- [Wind & Wireless: What Happens When You Remove Restrictions? You Soar.](https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0)
 
 Explore the latest articles, insights, and stories from our blog and Medium.
