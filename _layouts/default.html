@@ -8,7 +8,6 @@
 </head>
 <body class="{{ page.body_class }}">
 
-  {% unless page.body_class == "home-page" %}
   <header class="banner-header">
     <h1>{{ site.title }}</h1>
     <nav>
@@ -22,7 +21,6 @@
       </ul>
     </nav>
   </header>
-  {% endunless %}
 
   <main>
     {{ content }}
