@@ -23,7 +23,13 @@ This is your hub for all things related to wind and wireless. Enjoy exploring th
 Explore the latest articles, insights, and stories from our blog and Medium.
 
 ### Medium Posts
-- [The Right Environment for Success](https://medium.com/@ekwedar/the-right-environment-for-success-92351637e505)
-- [Wind & Wireless: What Happens When You Remove Restrictions? You Soar.](https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0)
+<div class="carousel">
+  <ul>
+    <li><a href="https://medium.com/@ekwedar/the-right-environment-for-success-92351637e505">The Right Environment for Success</a></li>
+    <li><a href="https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0">Wind & Wireless: What Happens When You Remove Restrictions? You Soar.</a></li>
+  </ul>
+</div>
 
+### Full Post Library
+For a complete list of all blog and Medium posts, visit the [Blog Archive](/blog.md).
 Explore the latest articles, insights, and stories from our blog and Medium.
