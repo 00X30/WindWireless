@@ -1,8 +1,6 @@
 ---
 layout: default
-
-title: [Blog Archive](/blog.md)
-
+title: Blog Archive
 body_class: blog-page
 ---
 
