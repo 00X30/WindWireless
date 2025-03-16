@@ -32,9 +32,8 @@ Stay up to date with the latest in wireless protocols, industry trends, and cutt
 ### Medium Articles
 <div>
   <h3>Trending on Medium: Wireless Technology</h3>
-  <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
-  data-fw-param="https://medium.com/feed/tag/wireless" preloader-text="Loading...">
-</script>
+  <!-- Alternative Method: RSS Embed -->
+  <iframe src="https://medium.com/tag/wireless/latest" width="100%" height="400px" style="border: none;"></iframe>
 </div>
 
 ## Industry Wireless & Backhaul
