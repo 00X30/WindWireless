@@ -27,6 +27,17 @@ Stay up to date with the latest in wireless protocols, industry trends, and cutt
   </ul>
 </div>
 
+## Wi-Fi Protocols Overview
+
+### Understanding Wi-Fi Standards: 802.11 Generations Explained
+<div>
+  <h3>Explaining Wi-Fi: 802.11 Standards & Generations</h3>
+  <p>Gain insights into the evolution of Wi-Fi standards, from Wi-Fi 1 to Wi-Fi 6 and beyond. This comprehensive overview will help you understand the advancements in speed, efficiency, and security across different Wi-Fi generations.</p>
+
+  <!-- Embedded YouTube Video -->
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/QSq1TYTiESA" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ## Latest Wireless Articles
 
 ### Medium Articles
