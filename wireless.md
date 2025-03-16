@@ -33,7 +33,8 @@ Stay up to date with the latest in wireless protocols, industry trends, and cutt
 <div>
   <h3>Trending on Medium: Wireless Technology</h3>
   <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
-      data-fw-param="171544/" preloader-text="Loading..."></script>
+  data-fw-param="https://medium.com/feed/tag/wireless" preloader-text="Loading...">
+</script>
 </div>
 
 ## Industry Wireless & Backhaul
