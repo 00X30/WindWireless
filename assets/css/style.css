@@ -27,13 +27,6 @@ body.home-page {
   background-attachment: fixed; /* Keeps the background static while scrolling */
 }
 
-/* Banner image on homepage */
-.banner-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-}
-
 /* Navigation styles (apply to ALL pages) */
 .nav-list {
   list-style: none;
