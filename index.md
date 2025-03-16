@@ -32,4 +32,3 @@ Explore the latest articles, insights, and stories from our blog and Medium.
 
 ### Full Post Library
 For a complete list of all blog and Medium posts, visit the [Blog Archive](/blog.md).
-Explore the latest articles, insights, and stories from our blog and Medium.
