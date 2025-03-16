@@ -1,34 +1,42 @@
----
-layout: default
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body class="{{ page.body_class }}">
 
-title: Home
+  <header class="banner-header">
+    <h1>{{ site.title }}</h1>
+    <nav>
+      <ul class="nav-list">
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/the-hangar' | relative_url }}">The Hangar</a></li>
+        <li><a href="{{ '/wind' | relative_url }}">Wind</a></li>
+        <li><a href="{{ '/wireless' | relative_url }}">Wireless</a></li>
+        <li><a href="{{ '/community' | relative_url }}">Community</a></li>
+        <li><a href="{{ '/donate' | relative_url }}">Support</a></li>
+      </ul>
+    </nav>
+  </header>
 
-body_class: home-page
----
+  <main>
+    {{ content }}
+  </main>
 
-# Welcome to Wind and Wireless
+  {% unless page.body_class == "home-page" %}
+  <footer>
+    <hr>
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+  </footer>
+  {% endunless %}
 
-This is your hub for all things related to wind and wireless. Enjoy exploring the site!
+  <!-- Load jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Load jQuery RSS plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-rss/3.3.0/jquery.rss.min.js"></script>
 
-## Featured Videos
-<div>
-    <h3>Wind & Wireless</h3>
-    <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" 
-        preloader-text="Loading" 
-        data-fw-param="171544/">
-    </script>
-</div>  
-
-## Latest Stories
-Explore the latest articles, insights, and stories from our blog and Medium.
-
-### Medium Posts
-<div class="carousel">
-  <ul>
-    <li><a href="https://medium.com/@ekwedar/the-right-environment-for-success-92351637e505">The Right Environment for Success</a></li>
-    <li><a href="https://medium.com/@ekwedar/wind-wireless-what-happens-when-you-remove-restrictions-you-soar-4f27f8a516f0">Wind & Wireless: What Happens When You Remove Restrictions? You Soar.</a></li>
-  </ul>
-</div>
-
-### Full Post Library
-For a complete list of all blog and Medium posts, visit the [Blog Archive](/blog.md).
+</body>
+</html>
