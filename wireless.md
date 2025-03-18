@@ -72,7 +72,10 @@ Speed, range, and interference resistance—fully broken down.
 
 ### 🔥 Fiber Optic Networks
 🔗 **Latest fiber deployments, submarine cables, and fiber innovations.**  
-<iframe src="https://fiberopticsnews.com/rss-feed" width="100%" height="400px" style="border: none;"></iframe>
+<iframe src="https://www.lightwaveonline.com/rss" width="100%" height="400px" style="border: none;"></iframe>
+
+🔗 **Alternative Fiber News Source:**  
+<iframe src="https://www.fiercetelecom.com/rss.xml" width="100%" height="400px" style="border: none;"></iframe>
 
 ---
 
