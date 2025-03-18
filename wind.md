@@ -6,7 +6,7 @@ author: "Xero"
 categories: [Climate Change, Extreme Weather, Reforestation]
 tags: [Weather, Climate Data, Forest Restoration, NOAA, Global Warming]
 layout: "post"
-image: "cover-image.jpg"
+image: "assets/images/cover-image.jpg"
 ---
 
 # The Escalation of Extreme Weather Events in the United States: A Data-Driven Analysis
@@ -38,7 +38,7 @@ A review of snowfall data since 2000 highlights numerous extreme events, such as
 
 **Figure 1: Snowfall & Heatwave Event Map**
 
-![Snowfall & Heatwave Event Map](Snowfall_Heatwave_Map.png)
+![Snowfall & Heatwave Event Map](assets/images/figure1.png)
 
 ### 3.2. Heatwaves
 Heatwaves have drastically increased in frequency and intensity. The **Pacific Northwest heatwave of June 2021**, where Portland recorded 116°F, and the **June 2024 Southwestern U.S. heatwave**, where Phoenix experienced 100 consecutive days over 100°F, are among the most severe.
@@ -48,7 +48,7 @@ The **Western U.S. drought of the early 2000s** and the **ongoing megadrought (2
 
 **Figure 2: Drought, Hurricane & Tornado Event Map**
 
-![Drought, Hurricane & Tornado Event Map](Drought_Hurricane_Tornado_Map.png)
+![Drought, Hurricane & Tornado Event Map](assets/images/figure2.png)
 
 ### 3.4. Hurricanes & Tornadoes
 Hurricane Katrina (2005) and Hurricane Harvey (2017) caused catastrophic flooding, while tornado outbreaks such as the **Joplin EF5 tornado of 2011** and the **March 2025 Southern States tornado outbreak** further demonstrate the volatility of extreme weather.
@@ -58,7 +58,7 @@ A time-series analysis of extreme weather events from 1970 to 2025 (tracked in f
 
 **Figure 3: Extreme Weather Trends Graph**
 
-![Extreme Weather Trends Graph](Extreme_Weather_Trends.png)
+![Extreme Weather Trends Graph](assets/images/figure3.png)
 
 ---
 
@@ -67,7 +67,7 @@ Overlaying population density data reveals that many extreme events occur in hig
 
 **Figure 4: Population Density vs. Extreme Weather**
 
-![Population Density vs. Extreme Weather](Population_Density_Weather.png)
+![Population Density vs. Extreme Weather](assets/images/figure4.png)
 
 ---
 
@@ -76,7 +76,7 @@ A review of U.S. Forest Service records highlights a steady decline in forest co
 
 **Figure 5: Forest Area Decline Graph**
 
-![Forest Area Decline Graph](Forest_Area_Decline.png)
+![Forest Area Decline Graph](assets/images/figure5.png)
 
 ---
 
